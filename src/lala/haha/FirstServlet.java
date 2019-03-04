@@ -6,14 +6,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
-@WebServlet(name = "FirstServlet")
+@WebServlet("/header.view")
 public class FirstServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
 
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>HeaderServlet</title>");
+        out.println("<body>");
+        out.println("<h1>HeaderServlet at" + req.getContextPath() + "</h1>");
+        Enumeration<String> names = req.getHeaderNames();
+        while(names.hasMoreElements()) {
+            String name = names.nextElement();
+            out.println(name + ": " + req.getHeader(name) + "<br>");
+        }
+        out.println("</head>");
+        out.println("</html>");
+        out.close();
     }
 }
