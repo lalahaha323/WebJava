@@ -13,10 +13,10 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user = request.getParameter("user");
         String passwd = request.getParameter("passwd");
-        if("caterpillar".equals(user) && "123456".equals(passwd)) {
+        if("lala".equals(user) && "123456".equals(passwd)) {
             String login = request.getParameter("login");
             if("auto".equals(login)) {
-                Cookie cookie = new Cookie("user", "caterpillar");
+                Cookie cookie = new Cookie("user", "lala");
                 cookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(cookie);
             }
@@ -28,7 +28,4 @@ public class Login extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

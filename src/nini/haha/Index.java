@@ -16,7 +16,7 @@ public class Index extends HttpServlet {
             for(Cookie cookie : cookies) {
                 String name = cookie.getName();
                 String value = cookie.getValue();
-                if("user".equals(name) && "caterpillar".equals(value)) {
+                if("user".equals(name) && "lala".equals(value)) {
                     request.setAttribute(name, value);
                     request.getRequestDispatcher("/user.view")
                             .forward(request, response);
