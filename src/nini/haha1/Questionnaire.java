@@ -20,7 +20,7 @@ public class Questionnaire extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         String page = request.getParameter("page");
-        out.println("<form action='questionnaire' method='post'>");
+        out.println("<form action='questionnaire2' method='post'>");
         if(page == null) {
             out.println("问题一：<input type='text' name='p1q1'><br>");
             out.println("问题二：<input type='text' name='p1q2'><br>");
@@ -35,10 +35,10 @@ public class Questionnaire extends HttpServlet {
             out.println("<input type='submit' name='page' value='完成'>");
         } else if("完成".equals(page)) {
             HttpSession session = request.getSession();
-            session.getAttribute("p1q1");
+            //session.getAttribute("p1q1");
             out.println(session.getAttribute("p1q1") + "<br>");
             out.println(session.getAttribute("p1q2") + "<br>");
-            out.println(request.getParameter("p2q1" + "<br>"));
+            out.println(request.getParameter("p2q1") + "<br>");
         }
         out.println("</from>");
         out.println("</body>");
