@@ -12,7 +12,8 @@ import java.io.IOException;
 public class ServletDemo3 extends HttpServlet {
     protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext servletContext = this.getServletContext();
-        String value = (String) servletContext.getAttribute("Myname");
+//        ServletContext servletContext = this.getServletContext();
+        String value = (String) servletContext.getInitParameter("name");
         System.out.println(value);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
