@@ -20,10 +20,10 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String passwd = request.getParameter("passwd");
-        System.out.println(name);
         String page = "form.html";
         if (users.containsKey(name) && users.get(name).equals(passwd)) {
-            request.getSession().setAttribute("user", name);
+            User user = new User(name);
+            request.getSession().setAttribute("user", user);
             page = "welcome.view";
         }
         response.sendRedirect(page);
